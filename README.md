@@ -2,6 +2,12 @@
 
 This project demonstrates safe seat booking under high concurrency.
 
+## Frontend
+
+The UI is built with [Vite](https://vite.dev/) (static webpage framework). Source files live in `frontend/src/`. Run `npm run build` inside `frontend/` to compile them into the `static/` directory, which the Go server serves.
+
+For local UI development with hot-module replacement, run `npm run dev` inside `frontend/` and proxy API calls to the Go server (default `:8080`).
+
 ## Feature
 
 - Supports concurrent booking requests.
@@ -28,18 +34,27 @@ Use Redis Lua scripts to atomically check and reserve seats with TTL.
 docker compose up -d redis
 ```
 
-2. Run the app:
+2. Build the frontend:
+
+```bash
+cd frontend
+npm install
+npm run build
+cd ..
+```
+
+3. Run the app:
 
 ```bash
 go run ./cmd
 ```
 
-3. Open the app:
+4. Open the app:
 
 - UI: http://localhost:8080
 - Redis Commander (optional): http://localhost:8081
 
-4. Stop services when done:
+5. Stop services when done:
 
 ```bash
 docker compose down
