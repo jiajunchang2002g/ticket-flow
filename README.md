@@ -1,4 +1,4 @@
-# Cinema Ticket Booking v2
+# Ticket Flow
 
 This project demonstrates safe seat booking under high concurrency.
 
